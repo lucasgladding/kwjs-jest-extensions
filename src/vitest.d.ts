@@ -5,6 +5,7 @@ interface CustomMatchers<R = unknown> {
     toExist(): R
     toContainSameYear(date: DateTime): R
     toHaveInput(name: string): R
+    dateContainingSameYear(date: DateTime): R
 }
 
 declare module 'vitest' {

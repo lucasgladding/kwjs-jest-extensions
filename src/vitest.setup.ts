@@ -14,6 +14,13 @@ expect.extend({
             message: () => `does${isNot ? ' not' : ''} contain ${expected}`
         }
     },
+    dateContainingSameYear(received, expected) {
+        const { isNot } = this
+        return {
+            pass: received.year == expected.year,
+            message: () => `date does${isNot ? ' not' : ''} contain same year ${expected}`
+        }
+    },
     toHaveInput(received, expected) {
         const { isNot } = this
         const match = received.find(`input[name='${expected}']`);
