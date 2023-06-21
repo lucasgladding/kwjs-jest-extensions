@@ -11,5 +11,6 @@ describe('DateText', () => {
             },
         })
         expect(wrapper).toExist();
+        expect(wrapper).toContainSameYear(date);
     });
 });

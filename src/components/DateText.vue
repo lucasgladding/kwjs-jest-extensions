@@ -7,5 +7,5 @@ defineProps<{
 </script>
 
 <template>
-  <div>{{date.toFormat('y')}}</div>
+  <span class="date">{{date.toFormat('y')}}</span>
 </template>

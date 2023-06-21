@@ -1,7 +1,9 @@
 import type { Assertion, AsymmetricMatchersContaining } from 'vitest'
+import {DateTime} from 'luxon';
 
 interface CustomMatchers<R = unknown> {
     toExist(): R
+    toContainSameYear(date: DateTime): R
 }
 
 declare module 'vitest' {
