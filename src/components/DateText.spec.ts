@@ -1,4 +1,3 @@
-import {describe, it} from 'vitest';
 import {mount} from '@vue/test-utils';
 import {DateTime} from 'luxon';
 import DateText from './DateText.vue';
