@@ -10,6 +10,6 @@ describe('DateText', () => {
                 date,
             },
         })
-        expect(wrapper.exists()).toEqual(true);
+        expect(wrapper).toExist();
     });
 });
