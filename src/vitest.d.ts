@@ -4,6 +4,7 @@ import {DateTime} from 'luxon';
 interface CustomMatchers<R = unknown> {
     toExist(): R
     toContainSameYear(date: DateTime): R
+    toHaveInput(name: string): R
 }
 
 declare module 'vitest' {

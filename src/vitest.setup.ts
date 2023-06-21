@@ -14,4 +14,12 @@ expect.extend({
             message: () => `does${isNot ? ' not' : ''} contain ${expected}`
         }
     },
+    toHaveInput(received, expected) {
+        const { isNot } = this
+        const match = received.find(`input[name='${expected}']`);
+        return {
+            pass: match.exists() === true,
+            message: () => `does${isNot ? ' not' : ''} have input ${expected}`
+        }
+    },
 });
