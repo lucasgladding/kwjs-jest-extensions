@@ -1,32 +1,42 @@
+
+
 expect.extend({
-    toExist(received) {
+    dateContainingSameYear(a, b) {
         const { isNot } = this
         return {
-            pass: received.exists() === true,
-            message: () => `component does${isNot ? ' not' : ''} exist`
+            pass: a.year == b.year,
+            message: () => isNot ? 'contains same year' : 'does not contain same year'
         }
     },
-    toContainSameYear(received, expected) {
+    toContainSameYear(wrapper, date) {
         const { isNot } = this
-        const year = expected.toFormat('y');
+        const expected = date.toFormat('y');
         return {
-            pass: received.text().includes(year),
-            message: () => `does${isNot ? ' not' : ''} contain ${expected}`
+            pass: wrapper.text().includes(expected),
+            message: () => isNot ? 'contains same year' : 'does not contain same year'
         }
     },
-    dateContainingSameYear(received, expected) {
+    toExist(wrapper) {
         const { isNot } = this
         return {
-            pass: received.year == expected.year,
-            message: () => `date does${isNot ? ' not' : ''} contain same year ${expected}`
+            pass: wrapper.exists() === true,
+            message: () => isNot ? 'exists' : 'does not exist'
         }
     },
-    toHaveInput(received, expected) {
+    toHaveInput(wrapper, name) {
         const { isNot } = this
-        const match = received.find(`input[name='${expected}']`);
+        const match = wrapper.find(`input[name='${name}']`);
         return {
             pass: match.exists() === true,
-            message: () => `does${isNot ? ' not' : ''} have input ${expected}`
+            message: () => isNot ? 'has input' : `does not have input ${name}`
+        }
+    },
+    toReceiveRequest(client, config) {
+        const { isNot } = this
+        const url = client.mock.calls[0][0];
+        return {
+            pass: url.includes(config.url),
+            message: () => isNot ? 'received request' : `did not receive request ${config.url}`
         }
     },
 });

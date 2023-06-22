@@ -1,11 +1,17 @@
 import type { Assertion, AsymmetricMatchersContaining } from 'vitest'
 import {DateTime} from 'luxon';
 
+type RequestConfig = {
+    url: string,
+    params?: object,
+};
+
 interface CustomMatchers<R = unknown> {
-    toExist(): R
-    toContainSameYear(date: DateTime): R
-    toHaveInput(name: string): R
     dateContainingSameYear(date: DateTime): R
+    toContainSameYear(date: DateTime): R
+    toExist(): R
+    toHaveInput(name: string): R
+    toReceiveRequest(config: RequestConfig): R
 }
 
 declare module 'vitest' {

@@ -11,10 +11,12 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "luxon": "^3.3.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/luxon": "^3.3.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitest/coverage-v8": "^0.32.2",
