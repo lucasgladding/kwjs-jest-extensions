@@ -40,10 +40,17 @@ expect.extend({
     },
     toReceiveRequest(client, config) {
         const { isNot } = this
-        const url = client.mock.calls[0][0];
+        let pass = true;
+        try {
+            expect(client.get).toHaveBeenCalledWith(config.url, {
+                params: config.params,
+            })
+        } catch (exception) {
+            pass = false;
+        }
         return {
-            pass: url.includes(config.url),
-            message: () => isNot ? 'received request' : `did not receive request ${config.url}`
+            pass,
+            message: () => isNot ? 'received request' : `did not receive request to ${config.url}`
         }
     },
 });
