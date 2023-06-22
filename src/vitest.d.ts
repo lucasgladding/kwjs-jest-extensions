@@ -12,7 +12,7 @@ interface CustomMatchers<R = unknown> {
     toContainSameYear(date: DateTime): R
     toExist(): R
     toHaveInput(name: string): R
-    toReceiveRequest(config: RequestConfig): R
+    toReceiveRequest(url: string, config?: object): R
 }
 
 declare module 'vitest' {

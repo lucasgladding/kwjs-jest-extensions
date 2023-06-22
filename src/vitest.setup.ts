@@ -36,19 +36,21 @@ expect.extend({
             message: () => isNot ? 'has input' : `does not have input ${name}`
         }
     },
-    toReceiveRequest(client, config) {
+    toReceiveRequest(client, targetURL, targetConfig) {
         const { isNot } = this
         let pass = true;
         try {
-            expect(client.get).toHaveBeenCalledWith(config.url, {
-                params: config.params,
-            })
+            if (targetConfig) {
+                expect(client.get).toHaveBeenCalledWith(targetURL, targetConfig)
+            } else {
+                expect(client.get).toHaveBeenCalledWith(targetURL)
+            }
         } catch (exception) {
             pass = false;
         }
         return {
             pass,
-            message: () => isNot ? 'received request' : `did not receive request to ${config.url}`
+            message: () => isNot ? 'received request' : `did not receive request to ${targetURL}`
         }
     },
 });

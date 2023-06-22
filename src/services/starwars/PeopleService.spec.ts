@@ -9,8 +9,10 @@ describe('PeopleService', () => {
         const client = axios;
         const service = new PeopleService(client);
         service.search(name);
-        expect(client).toReceiveRequest({ url: '/api/people', params: {
-            search: name,
-        }});
+        expect(client).toReceiveRequest('/api/people', {
+            params: {
+                search: name,
+            },
+        });
     });
 });
