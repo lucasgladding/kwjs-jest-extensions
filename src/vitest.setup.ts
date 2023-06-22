@@ -1,18 +1,18 @@
 
 
 expect.extend({
-    dateAfterYear(date, year) {
-        const { isNot } = this
-        return {
-            pass: date.year >= year,
-            message: () => isNot ? `contains date after ${year}` : `does not contain date after ${year}`
-        }
-    },
     dateContainingSameYear(a, b) {
         const { isNot } = this
         return {
             pass: a.year === b.year,
             message: () => isNot ? 'contains same year' : 'does not contain same year'
+        }
+    },
+    dateOnOrAfterYear(date, year) {
+        const { isNot } = this
+        return {
+            pass: date.year >= year,
+            message: () => isNot ? `contains date after ${year}` : `does not contain date after ${year}`
         }
     },
     toContainSameYear(wrapper, date) {

@@ -7,8 +7,8 @@ type RequestConfig = {
 };
 
 interface CustomMatchers<R = unknown> {
-    dateAfterYear(year: number): R
     dateContainingSameYear(date: DateTime): R
+    dateOnOrAfterYear(year: number): R
     toContainSameYear(date: DateTime): R
     toExist(): R
     toHaveInput(name: string): R
