@@ -11,4 +11,14 @@ describe('Example', () => {
             date: expect.dateContainingSameYear(date2),
         }))
     });
+
+    it('matches an object with a date after 2023', () => {
+        const date = DateTime.fromISO('2023-01-01');
+        const data = {
+            date,
+        };
+        expect(data).toEqual(expect.objectContaining({
+            date: expect.dateAfterYear(2023),
+        }))
+    });
 });
