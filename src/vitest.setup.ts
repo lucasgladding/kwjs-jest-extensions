@@ -1,5 +1,3 @@
-
-
 expect.extend({
     dateContainingSameYear(a, b) {
         const { isNot } = this
