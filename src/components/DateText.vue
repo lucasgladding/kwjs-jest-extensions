@@ -2,10 +2,10 @@
 import {DateTime} from 'luxon';
 
 defineProps<{
-  date: DateTime,
+  date: DateTime
 }>();
 </script>
 
 <template>
-  <span class="date">{{date.toFormat('y')}}</span>
+  <span class="date">{{ date.toFormat('y') }}</span>
 </template>
